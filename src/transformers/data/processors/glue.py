@@ -196,7 +196,7 @@ class MrpcProcessor(DataProcessor):
         for (i, line) in enumerate(lines):
             if i == 0:
                 continue
-            guid = "%s-%s" % (set_type, i)
+            guid = "%s-%s" % (set_type, line[0])
             text_a = line[3]
             text_b = line[4]
             label = None if set_type == "test" else line[0]
@@ -335,7 +335,7 @@ class Sst2Processor(DataProcessor):
         for (i, line) in enumerate(lines):
             if i == 0:
                 continue
-            guid = "%s-%s" % (set_type, i)
+            guid = "%s-%s" % (set_type, line[0])
             text_a = line[0]
             label = None if set_type == "test" else line[1]
             examples.append(InputExample(guid=guid, text_a=text_a, text_b=None, label=label))
